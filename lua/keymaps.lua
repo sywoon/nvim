@@ -10,6 +10,7 @@ vim.g.maplocalleader = " "
 -- t Terminal 模式
 -- c Command 模式
 local map = vim.api.nvim_set_keymap
+local map2 = vim.keymap.set
 local opt = {noremap = true, silent = true}
 
 
@@ -54,9 +55,8 @@ map("t", "A-l", [[ <C-\><C-N><C-w>l ]], opt)
 map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
 -- 上下移动选中文本
-map("v", "J", ":move '>+1<CR>gv-gv", opt)
-map("v", "K", ":move '>-2<CR>gv-gv", opt)
-
+map("v", "J", ":move '>+1<CR>gv=gv", opt)
+map("v", "K", ":move '<-2<CR>gv=gv", opt)
 
 -- 上下滚动浏览
 map("n", "<C-j>", "4j", opt)
@@ -74,11 +74,14 @@ map("v", "p", '"_dP', opt)
 -- map("n", "qq", ":q!<CR>", opt)
 -- map("n", "Q", ":qa!<CR>", opt)
 
+map("n", "<C-h>", ":bp<cr>", opt)
+map("n", "<C-l>", ":bn<cr>", opt)
+
 -- insert模式 调到行首尾
 map("i", "<C-h>", "<ESC>I", opt)
 map("i", "<C-l>", "<ESC>A", opt)
 
-map("i", "jk", "<ESC>", opt)
+map2({"i","v"}, "jk", "<ESC>", opt)
 
 
 

@@ -9,6 +9,11 @@
 vim.g.encoding = "UTF-8"  -- 设置全局编码为 UTF-8
 vim.o.fileencoding = "utf-8"  -- 设置文件编码为 UTF-8
 
+-- 使用系统粘贴板
+vim.o.clipboard = "unnamedplus"
+-- 鼠标支持
+vim.o.mouse = "a"  -- 启用鼠标支持
+
 -- jkhl 移动时光标周围保留8行
 vim.o.scrolloff = 8   -- 设置光标上下移动时保留8行
 vim.o.sidescrolloff = 8    -- 设置光标左右移动时保留8列
@@ -71,8 +76,6 @@ vim.o.whichwrap = '<,>,[,]'
 -- 允许隐藏被修改过的buffer
 vim.o.hidden = true  -- 允许在不保存的情况下切换 buffer
 
--- 鼠标支持
-vim.o.mouse = "a"  -- 启用鼠标支持
 
 -- 禁止创建备份文件
 vim.o.backup = false   -- 禁用备份文件
@@ -118,8 +121,6 @@ vim.o.showtabline = 2  -- 始终显示标签栏
 -- 关闭后 用插件代替
 vim.o.showmode = false
 
--- 使用系统粘贴板
-vim.o.clipboard = "unnamedplus"
 
 
 
