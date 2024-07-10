@@ -1,0 +1,40 @@
+[user]
+	name = sywoon
+	email = sywoon@163.com
+[color]
+	ui = auto
+[core]
+	longpaths = true
+	ignorecase = false
+	autocrlf = false
+	editor = nvim
+[sendpack]
+	sideband = false
+[push]
+	default = simple
+[diff]
+	tool = bc4
+[difftool "bc4"]
+	cmd = \"c:/program files/beyond compare/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = bc4
+[mergetool "bc4"]
+	cmd = \"c:/program files/beyond compare/bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+	trustExitCode = true
+[branch "master"]
+	rebase = true
+[branch "release"]
+	rebase = true
+[branch "release_lang"]
+	rebase = true
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	dt = difftool
+	logs = log --stat
+	logo = log --oneline
+	cp = cherry-pick
+[credential]
+	helper = manager
