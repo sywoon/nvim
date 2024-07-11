@@ -89,5 +89,8 @@ map2({"i","v"}, "jk", "<ESC>", opt)
 map("n", "<leader>e", ":NvimTreeToggle<cr>", opt)
 
 
+-- others plugins
+map('n', 'j', '<Plug>(accelerated_jk_gj)', {})
+map('n', 'k', '<Plug>(accelerated_jk_gk)', {})
 
 
