@@ -1,3 +1,4 @@
+-- 显示文件路径在上方
 return {
   "utilyre/barbecue.nvim",
   name = "barbecue",
@@ -10,5 +11,6 @@ return {
     -- configurations go here
   },
   config = function ()
+    require("barbecue").setup()
   end,
 }

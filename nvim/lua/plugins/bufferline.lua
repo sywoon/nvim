@@ -1,3 +1,4 @@
+-- 多个buffer页签
 return {
     'akinsho/bufferline.nvim', 
     version = "*", 

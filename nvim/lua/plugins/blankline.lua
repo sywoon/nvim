@@ -1,3 +1,4 @@
+-- 每行前 根据块 显示竖线
 return {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
