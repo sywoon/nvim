@@ -74,8 +74,11 @@ map("v", "p", '"_dP', opt)
 -- map("n", "qq", ":q!<CR>", opt)
 -- map("n", "Q", ":qa!<CR>", opt)
 
-map("n", "<C-h>", ":bp<cr>", opt)
-map("n", "<C-l>", ":bn<cr>", opt)
+--map("n", "<C-h>", ":bp<cr>", opt)
+--map("n", "<C-l>", ":bn<cr>", opt)
+map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
+map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
+
 
 -- insert模式 调到行首尾
 map("i", "<C-h>", "<ESC>I", opt)
