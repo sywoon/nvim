@@ -1,6 +1,6 @@
 
-def test(a, b):
+def Test2(a, b):
     print("abc", a, b)
 
 
-test(1, 2)
+Test2(1, 2)

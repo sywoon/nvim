@@ -45,10 +45,10 @@ map("n", "s=", "<C-w>=", opt)
 map("n", "<leader>t", ":sp | terminal<CR>", opt)
 map("n", "<leader>vt", ":vsp | terminal<CR>", opt)
 map("t", "<Esc>", "<C-\\><C-n>", opt)
-map("t", "A-h", [[ <C-\><C-N><C-w>h ]], opt)
-map("t", "A-j", [[ <C-\><C-N><C-w>j ]], opt)
-map("t", "A-k", [[ <C-\><C-N><C-w>k ]], opt)
-map("t", "A-l", [[ <C-\><C-N><C-w>l ]], opt)
+map("t", "<A-h>", [[ <C-\><C-N><C-w>h ]], opt)
+map("t", "<A-j>", [[ <C-\><C-N><C-w>j ]], opt)
+map("t", "<A-k>", [[ <C-\><C-N><C-w>k ]], opt)
+map("t", "<A-l>", [[ <C-\><C-N><C-w>l ]], opt)
 
 
 -- visual模式下缩进代码
@@ -79,10 +79,11 @@ map("v", "p", '"_dP', opt)
 map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
 
-
--- insert模式 调到行首尾
+-- insert 模式下，跳到行首行尾
 map("i", "<C-h>", "<ESC>I", opt)
 map("i", "<C-l>", "<ESC>A", opt)
+map("i", "<C-j>", "<ESC>o", opt)
+map("i", "<C-k>", "<ESC>O", opt)
 
 map2({"i","v"}, "jk", "<ESC>", opt)
 
@@ -93,7 +94,7 @@ map("n", "<leader>e", ":NvimTreeToggle<cr>", opt)
 
 
 -- others plugins
-map('n', 'j', '<Plug>(accelerated_jk_gj)', {})
-map('n', 'k', '<Plug>(accelerated_jk_gk)', {})
+map('n', 'j', '<Plug>(accelerated_jk_gj)', opt)
+map('n', 'k', '<Plug>(accelerated_jk_gk)', opt)
 
 

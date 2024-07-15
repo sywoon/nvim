@@ -3,10 +3,10 @@ require "keybindings"
 require "plugin"
 
 
-function test()
+function Test()
     local i = 1
     i = 1 + 3
     return i
 end
 
-test()
+Test()

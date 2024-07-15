@@ -67,7 +67,7 @@ vim.o.cmdheight = 1  -- 命令行高度为2行
 vim.o.autoread = true
 vim.bo.autoread = true
 
--- 禁止拆行
+-- 禁止折行
 vim.wo.wrap = false
 
 -- 光标在首位时<left><right>可以调到下一行
@@ -122,6 +122,13 @@ vim.o.showtabline = 2  -- 始终显示标签栏
 vim.o.showmode = false
 
 
+-- treesitter
+-- 代码折叠
+-- 开启 Folding 模块
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- 默认不要折叠
+-- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
+vim.opt.foldlevel = 99
 
--- others plugins
 

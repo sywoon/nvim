@@ -1,9 +1,10 @@
+-- 多个buffer页签
 return {
     "akinsho/bufferline.nvim",
     version = "*", 
     dependencies = { 
         "nvim-tree/nvim-web-devicons", 
-        "moll/vim-bbye" 
+        "moll/vim-bbye",  --解决buffer关闭 显示错乱bug 用:Bd 代替:bd
     },
     config = function ()
         local status, bufferline = pcall(require, "bufferline")

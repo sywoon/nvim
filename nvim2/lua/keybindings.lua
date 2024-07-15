@@ -1,7 +1,14 @@
--- leader key 是你常用的前缀
+ -- <leader> key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+
+-- map('模式', '按键', '映射为', 'options')
+-- n Normal 模式
+-- i Insert 模式
+-- v Visual 模式
+-- t Terminal 模式
+-- c Command 模式
 local map = vim.api.nvim_set_keymap
 local mapex = vim.keymap.set --支持多种模式
 local opt = { noremap = true, silent = true }
@@ -53,12 +60,12 @@ map("v", "K", ":move '<-2<CR>gv-gv", opt)
 -- 上下滚动浏览
 map("n", "<C-j>", "4j", opt)
 map("n", "<C-k>", "4k", opt)
--- ctrl u / ctrl + d  只移动9行，默认移动半屏
+-- ctrl+u / ctrl+d 只移动9行 默认半屏
 map("n", "<C-u>", "9k", opt)
 map("n", "<C-d>", "9j", opt)
 
 
--- 在visual 模式里粘贴不要复制
+-- 在v模式 粘贴不要复制
 map("v", "p", '"_dP', opt)
 
 -- 退出
@@ -84,9 +91,12 @@ map("i", "jk", "<ESC>", opt)
 -- nvimTree
 -- alt + m 键打开关闭tree
 map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
+map("n", "<leader>e", ":NvimTreeToggle<CR>", opt)
 
 -- bufferline
 -- 左右Tab切换
+--map("n", "<C-h>", ":bp<cr>", opt)
+--map("n", "<C-l>", ":bn<cr>", opt)
 map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
 
@@ -114,6 +124,9 @@ map("n", "<leader>fb", ":Telescope buffers<CR>", opt)
 -- 格式化文件 后面被lsp.buf.format代替=leader-f
 map("n", "<A-f>", "gg=G", opt)
 
+-- "rainbowhxch/accelerated-jk.nvim",  --jk按键越久越快
+map('n', 'j', '<Plug>(accelerated_jk_gj)', opt)
+map('n', 'k', '<Plug>(accelerated_jk_gk)', opt)
 
 
 local pluginKeys = {}
