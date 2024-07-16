@@ -240,38 +240,39 @@ pluginKeys.nvimCmp = function(cmp)
         -- end, { "i", "s" }),
         -- 自定义代码段跳转到下一个参数
 
-        --     if vim.fn["vsnip#available"](1) == 1 then
-        --         feedkey("<Plug>(vsnip-expand-or-jump)", "")
-        --     end
-        -- end, { "i", "s" }),
-        --
-        -- -- 自定义代码段跳转到上一个参数
-        -- ["<C-h>"] = cmp.mapping(function()
-        --     if vim.fn["vsnip#jumpable"](-1) == 1 then
-        --         feedkey("<Plug>(vsnip-jump-prev)", "")
-        --     end
-        -- end, { "i", "s" }),
-
-        -- Super Tab
-        ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif vim.fn["vsnip#available"](1) == 1 then
+        ["<C-l>"] = cmp.mapping(function()
+            if vim.fn["vsnip#available"](1) == 1 then
                 feedkey("<Plug>(vsnip-expand-or-jump)", "")
-            elseif has_words_before() then
-                cmp.complete()
-            else
-                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
             end
         end, { "i", "s" }),
 
-        ["<S-Tab>"] = cmp.mapping(function()
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+        -- 自定义代码段跳转到上一个参数
+        ["<C-h>"] = cmp.mapping(function()
+            if vim.fn["vsnip#jumpable"](-1) == 1 then
                 feedkey("<Plug>(vsnip-jump-prev)", "")
             end
-        end, { "i", "s" })
+        end, { "i", "s" }),
+
+        -- Super Tab
+        -- ["<Tab>"] = cmp.mapping(function(fallback)
+        --     if cmp.visible() then
+        --         cmp.select_next_item()
+        --     elseif vim.fn["vsnip#available"](1) == 1 then
+        --         feedkey("<Plug>(vsnip-expand-or-jump)", "")
+        --     elseif has_words_before() then
+        --         cmp.complete()
+        --     else
+        --         fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+        --     end
+        -- end, { "i", "s" }),
+        --
+        -- ["<S-Tab>"] = cmp.mapping(function()
+        --     if cmp.visible() then
+        --         cmp.select_prev_item()
+        --     elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+        --         feedkey("<Plug>(vsnip-jump-prev)", "")
+        --     end
+        -- end, { "i", "s" })
         -- end of super Tab
     })
 end
