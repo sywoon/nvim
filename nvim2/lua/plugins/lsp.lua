@@ -15,6 +15,7 @@ return {
         local servers = {
             lua_ls = require("lsp.lua"), -- lua/lsp/lua.lua
             pylsp = require("lsp.python"),
+            tsserver = require ("lsp.typescript")
         }
         require("mason").setup({
             ui = {
@@ -32,7 +33,7 @@ return {
         })
 
         local lspconfig = require('lspconfig')
-        -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
         for name, svrCfg in pairs(servers) do
             -- 第一版本 所有语言一个配置
             -- lspconfig[name].setup({
@@ -46,7 +47,7 @@ return {
                 vim.tbl_deep_extend("keep",
                     {
                         on_attach = require('keybindings').mapLSP,
-                        -- capabilities = capabilities
+                        capabilities = capabilities
                     },
                     svrCfg
                 )
