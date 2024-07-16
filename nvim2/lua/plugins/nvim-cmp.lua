@@ -2,19 +2,18 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = {
         'neovim/nvim-lspconfig',
+
+        -- For vsnip users.
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
         'hrsh7th/cmp-cmdline',
-        'hrsh7th/nvim-cmp',
-
-        -- For vsnip users.
         'hrsh7th/cmp-vsnip',
         'hrsh7th/vim-vsnip',
 
         -- For luasnip users.
-        'L3MON4D3/LuaSnip',
-        'saadparwaiz1/cmp_luasnip',
+        -- 'L3MON4D3/LuaSnip',
+        -- 'saadparwaiz1/cmp_luasnip',
 
         -- For ultisnips users.
         -- Plug 'SirVer/ultisnips',
@@ -60,33 +59,33 @@ return {
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'vsnip' }, -- For vsnip users.
-                { name = 'path' },
                 -- { name = 'luasnip' }, -- For luasnip users.
                 -- { name = 'ultisnips' }, -- For ultisnips users.
                 -- { name = 'snippy' }, -- For snippy users.
             }, {
                 { name = 'buffer' },
+                { name = 'path' },
             }),
 
             -- 这块官方没有 从别的文章里复制来的 和telescope的format有何区别？
-            formatting = {
-                -- Set order from left to right
-                -- kind: single letter indicating the type of completion
-                -- abbr: abbreviation of "word"; when not empty it is used in the menu instead of "word"
-                -- menu: extra text for the popup menu, displayed after "word" or "abbr"
-                fields = { 'abbr', 'menu' },
-
-                -- customize the appearance of the completion menu
-                format = function(entry, vim_item)
-                    vim_item.menu = ({
-                        nvim_lsp = '[Lsp]',
-                        -- luasnip = '[Luasnip]',
-                        buffer = '[File]',
-                        path = '[Path]',
-                    })[entry.source.name]
-                    return vim_item
-                end,
-            },
+            -- formatting = {
+            --     -- Set order from left to right
+            --     -- kind: single letter indicating the type of completion
+            --     -- abbr: abbreviation of "word"; when not empty it is used in the menu instead of "word"
+            --     -- menu: extra text for the popup menu, displayed after "word" or "abbr"
+            --     fields = { 'abbr', 'menu' },
+            --
+            --     -- customize the appearance of the completion menu
+            --     format = function(entry, vim_item)
+            --         vim_item.menu = ({
+            --             nvim_lsp = '[Lsp]',
+            --             -- luasnip = '[Luasnip]',
+            --             buffer = '[File]',
+            --             path = '[Path]',
+            --         })[entry.source.name]
+            --         return vim_item
+            --     end,
+            -- },
         })
 
         -- To use git you need to install the plugin petertriho/cmp-git and uncomment lines below
