@@ -1,3 +1,5 @@
+require "lsp.ui"
+
 return {
     "neovim/nvim-lspconfig",
     cmd = { "Mason", "Neoconf" },

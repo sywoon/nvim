@@ -174,6 +174,11 @@ pluginKeys.mapLSP = function(_, bufnr) -- _=client
     map("n", "<leader>f", function()
         vim.lsp.buf.format({ async = true })
     end, bufopts)
+
+    -- diagnostic  错误提示太长看不全
+    map("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
+    map("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
+    map("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
 end
 
 
