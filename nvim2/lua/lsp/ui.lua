@@ -1,6 +1,6 @@
 vim.diagnostic.config({
-    virtual_text = true,  --右侧显示的文字
-    signs = true,  --左侧的图标
+    virtual_text = false,  --右侧显示的文字
+    signs = false,  --左侧的图标
     -- 在输入模式下也更新提示，设置为 true 也许会影响性能
     update_in_insert = true,
 })

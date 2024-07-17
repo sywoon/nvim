@@ -42,8 +42,9 @@ map("n", "<C-Up>", ":resize -2<CR>", opt)
 map("n", "s=", "<C-w>=", opt)
 
 -- Terminal相关
-map("n", "<leader>t", ":sp | terminal<CR>", opt)
-map("n", "<leader>vt", ":vsp | terminal<CR>", opt)
+map("n", "<leader>t", ":vsp | terminal<CR>", opt)
+map("n", "<leader>ht", ":sp | terminal<CR>", opt)
+-- map("n", "<leader>vt", ":vsp | terminal<CR>", opt)
 map("t", "<Esc>", "<C-\\><C-n>", opt)
 map("t", "<A-h>", [[ <C-\><C-N><C-w>h ]], opt)
 map("t", "<A-j>", [[ <C-\><C-N><C-w>j ]], opt)
@@ -82,6 +83,7 @@ map("i", "<C-j>", "<ESC>o", opt)
 map("i", "<C-k>", "<ESC>O", opt)
 
 map("i", "jk", "<ESC>", opt)
+map("n", "<C-a>", "ggVG", opt)
 
 
 
@@ -153,7 +155,7 @@ pluginKeys.telescopeList = {
 -- lsp 回调函数快捷键设置
 pluginKeys.mapLSP = function(_, bufnr) -- _=client
     -- Enable completion triggered by <c-x><c-o>
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -244,14 +246,14 @@ pluginKeys.nvimCmp = function(cmp)
             if vim.fn["vsnip#available"](1) == 1 then
                 feedkey("<Plug>(vsnip-expand-or-jump)", "")
             end
-        end, { "i", "s" }),
+        end, { "s" }),
 
         -- 自定义代码段跳转到上一个参数
         ["<C-h>"] = cmp.mapping(function()
             if vim.fn["vsnip#jumpable"](-1) == 1 then
                 feedkey("<Plug>(vsnip-jump-prev)", "")
             end
-        end, { "i", "s" }),
+        end, { "s" }),
 
         -- Super Tab
         -- ["<Tab>"] = cmp.mapping(function(fallback)
