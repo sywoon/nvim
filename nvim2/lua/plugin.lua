@@ -31,6 +31,7 @@ require("lazy").setup({
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },  --"tokyonight-storm"
   -- automatically check for plugin updates
-  checker = { enabled = true },
+  -- 启动不好看 改为手动输入:Lazy方式
+  checker = { enabled = false},
 })
 

@@ -17,7 +17,8 @@ return {
         local servers = {
             lua_ls = require("lsp.lua"), -- lua/lsp/lua.lua
             pylsp = require("lsp.python"),
-            tsserver = require ("lsp.typescript")
+            tsserver = require ("lsp.typescript"),
+            eslint = {},
         }
         require("mason").setup({
             ui = {

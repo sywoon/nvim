@@ -1,26 +1,25 @@
-
 local function my_on_attach(bufnr)
-  local api = require "nvim-tree.api"
+    local api = require "nvim-tree.api"
 
-  local function opts(desc)
-    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-  end
+    local function opts(desc)
+        return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    end
 
-  -- default mappings
-  api.config.mappings.default_on_attach(bufnr)
+    -- default mappings
+    api.config.mappings.default_on_attach(bufnr)
 
-  -- custom mappings
-  vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
-  vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
-  -- vim.keymap.set('n', '<leader>e',  api.tree.toggle,                  opts('Toggle')) ÎÞÐ§ ¶îÍâÊ¹ÓÃNvimTreeToggleÀ´°ó¶¨ 
+    -- custom mappings
+    vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts('Up'))
+    vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
+    -- vim.keymap.set('n', '<leader>e',  api.tree.toggle,                  opts('Toggle')) ÎÞÐ§ ¶îÍâÊ¹ÓÃNvimTreeToggleÀ´°ó¶¨
 end
 
 return {
     {
-        "nvim-tree/nvim-tree.lua",  --插件在github上的short url
-        version = "*",  --表明使用最新版本  以后仓库有更新，则拉去最新插件代码
-        dependencies = {"nvim-tree/nvim-web-devicons"},  --依赖另一个插件
-        config = function()  --插件启动加载以后，则会执行该config的代码
+        "nvim-tree/nvim-tree.lua",                      --插件在github上的short url
+        version = "*",                                  --表明使用最新版本  以后仓库有更新，则拉去最新插件代码
+        dependencies = { "nvim-tree/nvim-web-devicons" }, --依赖另一个插件
+        config = function()                             --插件启动加载以后，则会执行该config的代码
             local status, nvim_tree = pcall(require, "nvim-tree")
             if not status then
                 vim.notify("没有找到 nvim-tree")
@@ -31,8 +30,10 @@ return {
                 git = {
                     enable = false,
                 },
-                -- project plugin 需要这样设置
+                -- project.nvim plugin 需要这样设置
+                respect_buf_cwd = true,
                 update_cwd = true,
+                sync_root_with_cwd = true,
                 update_focused_file = {
                     enable = true,
                     update_cwd = true,

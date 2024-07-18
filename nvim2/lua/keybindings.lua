@@ -85,6 +85,14 @@ map("i", "<C-k>", "<ESC>O", opt)
 map("i", "jk", "<ESC>", opt)
 map("n", "<C-a>", "ggVG", opt)
 
+-- 跳函数
+map("n", "<C-[>", "[m", opt)
+map("n", "<C-]>", "]m", opt)
+
+-- 无效 会和搜索/功能冲突; 无论换什么键 都无效
+-- map("n", "<C-\\>", "gcc", opt)
+-- mapex({ "n", "v" }, "<C-\\>", "gcc")
+
 
 
 
@@ -161,6 +169,7 @@ pluginKeys.mapLSP = function(_, bufnr) -- _=client
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     local map = vim.keymap.set
 
+    map("n", "<F2>", vim.lsp.buf.rename, bufopts)
     map("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
     map("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
     map('n', 'gD', vim.lsp.buf.declaration, bufopts)
