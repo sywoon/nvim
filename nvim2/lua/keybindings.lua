@@ -175,7 +175,7 @@ pluginKeys.mapLSP = function(_, bufnr) -- _=client
     map('n', 'gd', '<cmd>Lspsaga goto_definition<CR>', opt)
     map('n', 'gD', '<cmd>Lspsaga peek_definition<CR>', opt)
     map("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
-    map("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
+    map("n", "gr", "<cmd>Lspsaga finder<CR>", opt)
 
     -- map("n", "<F2>", vim.lsp.buf.rename, bufopts)
     -- map("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
