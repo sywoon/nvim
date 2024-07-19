@@ -32,5 +32,24 @@ return {
             return
         end
         pcall(telescope.load_extension, "projects")
+
+
+        -- 自动加载项目配置 让不同的项目可以有不同的配置
+        local function load_project_config()
+            local project_config_path = vim.fn.getcwd() .. '/.nvim/config.lua'
+            if vim.fn.filereadable(project_config_path) == 1 then
+                dofile(project_config_path)
+            end
+        end
+
+        -- 在进入项目时加载配置
+        vim.api.nvim_create_autocmd("VimEnter", {
+            callback = load_project_config
+        })
+
+        -- 在切换目录时加载配置
+        vim.api.nvim_create_autocmd("DirChanged", {
+            callback = load_project_config
+        })
     end
 }
