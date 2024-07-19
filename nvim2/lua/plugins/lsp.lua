@@ -19,6 +19,8 @@ return {
             pylsp = require("lsp.python"),
             tsserver = require ("lsp.typescript"),
             eslint = {},
+            html = require ("lsp.html"),
+            cssls = require ("lsp.css"),
         }
         require("mason").setup({
             ui = {

@@ -1,5 +1,3 @@
-
-
 function test()
     local i = 1
     i = 1 + 3
@@ -11,8 +9,8 @@ test()
 function Test2()
     local t = {}
     table.insert(t, 1, 22)
-    table.sort(t, function (l, r)
-       return l < r
+    table.sort(t, function(l, r)
+        return l < r
     end)
     print("hello")
 end
@@ -50,11 +48,9 @@ end
 -- 2. 重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为分区（partition）操作。
 -- 3. 递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。
 function Test3()
-    local t = {1, 3, 2, 5, 4}
+    local t = { 1, 3, 2, 5, 4 }
     quick_sort(t, 1, #t)
     for i = 1, #t do
         print(t[i])
     end
 end
-
-

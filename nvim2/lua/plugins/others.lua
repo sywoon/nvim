@@ -11,7 +11,7 @@ return {
             -- this is equalent to setup({}) function
         },
         "mg979/vim-visual-multi",   --模拟vsc的ctrl+d多选
-        "tpope/vim-commentary",     --模拟vsc的ctrl+/注释
+        -- "tpope/vim-commentary",     --模拟vsc的ctrl+/注释
         "onsails/lspkind-nvim",
     },
 }
