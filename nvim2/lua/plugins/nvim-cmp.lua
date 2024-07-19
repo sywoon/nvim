@@ -67,6 +67,8 @@ return {
                 { name = 'path' },
             }),
 
+            formatting = require ("lsp.ui").formatting;
+
             -- 这块官方没有 从别的文章里复制来的 和telescope的format有何区别？
             -- formatting = {
             --     -- Set order from left to right

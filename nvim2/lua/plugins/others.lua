@@ -12,6 +12,7 @@ return {
         },
         "mg979/vim-visual-multi",   --模拟vsc的ctrl+d多选
         "tpope/vim-commentary",     --模拟vsc的ctrl+/注释
+        "onsails/lspkind-nvim",
     },
 }
 

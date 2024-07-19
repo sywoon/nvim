@@ -1,12 +1,12 @@
 
 
-function test() 
+function test()
     local i = 1
     i = 1 + 3
     return i
 end
 
-test() 
+test()
 
 function Test2()
     local t = {}

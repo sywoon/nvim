@@ -1,4 +1,4 @@
-require "lsp.ui"
+-- require "lsp.ui"
 
 return {
     "neovim/nvim-lspconfig",
