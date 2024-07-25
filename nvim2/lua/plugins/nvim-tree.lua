@@ -81,11 +81,11 @@ return {
                 :hi      NvimTreeSymlink     guifg=Yellow  gui=italic
                 :hi link NvimTreeImageFile   Title
             ]])
-	    -- 自动关闭
-		vim.cmd([[
-		  autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
-		]]
-		)
+	    -- 自动关闭: 做什么用的？  有bug  游戏工程打开会nvim会崩溃 为何？
+	   --	vim.cmd([[
+	   --	  autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+	   --	]]
+	   --	)
         end
     }
 }
