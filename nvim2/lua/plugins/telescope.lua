@@ -22,6 +22,7 @@ return {
                 initial_mode = "insert",
                 -- 窗口内快捷键
                 mappings = require("keybindings").telescopeList,
+                file_ignore_patterns = {".git"},  --好像默认就会过滤.开头的文件夹
             },
             pickers = {
                 -- 内置 pickers 配置
