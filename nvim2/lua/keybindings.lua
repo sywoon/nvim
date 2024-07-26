@@ -85,6 +85,12 @@ map("i", "<C-k>", "<ESC>O", opt)
 map("i", "jk", "<ESC>", opt)
 map("n", "<C-a>", "ggVG", opt)
 
+-- nvim默认支持ctrl-v来复制 资产niv模式
+-- Ctrl-c复制选中内容 鼠标双击也能选中
+map("v", "<C-c>", "y", opt)
+map("n", "<C-z>", "u", opt)
+map("i", "<C-z>", "<ESC>u", opt)
+
 -- 跳函数
 map("n", "<C-[>", "[m", opt)
 map("n", "<C-]>", "]m", opt)
