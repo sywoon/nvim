@@ -51,6 +51,7 @@ return {
             lspconfig[name].setup(
                 vim.tbl_deep_extend("keep",
                     {
+                        -- LSP 客户端连接到缓冲区时调用的函数
                         on_attach = require('keybindings').mapLSP,
                         capabilities = capabilities
                     },

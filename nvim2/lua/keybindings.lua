@@ -144,6 +144,11 @@ map("n", "<A-f>", "gg=G", opt)
 map('n', 'j', '<Plug>(accelerated_jk_gj)', opt)
 map('n', 'k', '<Plug>(accelerated_jk_gk)', opt)
 
+-- projects
+map('n', '<leader>fp', ':Telescope projects<CR>', opt)
+
+
+
 
 local pluginKeys = {}
 
@@ -172,43 +177,50 @@ pluginKeys.mapLSP = function(_, bufnr) -- _=client
     -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local bufopts = { noremap = true, silent = true, buffer = bufnr }
-    local map = vim.keymap.set
+    local bufopt = { noremap = true, silent = true, buffer = bufnr}
+    -- local bufmap = function (...)
+    --     vim.api.nvim_buf_set_keymap(bufnr, ...)
+    -- end
+    -- local bufopt = function (...)
+    --     vim.api.nvim_buf_set_option(bufnr, ...)
+    -- end
+    local bufmap = mapex
 
-    map("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opt)
-    map("n", "<F2>", "<cmd>Lspsaga rename<CR>", opt)
-    map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
-    map('n', 'gd', '<cmd>Lspsaga goto_definition<CR>', opt)
-    map('n', 'gD', '<cmd>Lspsaga peek_definition<CR>', opt)
-    map("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
-    map("n", "gr", "<cmd>Lspsaga finder<CR>", opt)
+    bufmap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", bufopt)
+    bufmap("n", "<F2>", "<cmd>Lspsaga rename<CR>", bufopt)
+    bufmap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", bufopt)
+    bufmap('n', 'gd', '<cmd>Lspsaga goto_definition<CR>', bufopt)
+    bufmap('n', 'gD', '<cmd>Lspsaga peek_definition<CR>', bufopt)
+    bufmap("n", "gh", "<cmd>Lspsaga hover_doc<cr>", bufopt)
+    bufmap("n", "gr", "<cmd>Lspsaga finder<CR>", bufopt)
 
-    -- map("n", "<F2>", vim.lsp.buf.rename, bufopts)
-    -- map("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
-    -- map("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
-    -- map('n', 'gd', vim.lsp.buf.definition, bufopts)
-    -- map('n', 'gh', vim.lsp.buf.hover, bufopts)
-    -- map('n', 'gr', vim.lsp.buf.references, bufopts)
+    -- bufmap("n", "<F2>", vim.lsp.buf.rename, bufopts)
+    -- bufmap("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
+    -- bufmap("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
+    -- bufmap('n', 'gd', vim.lsp.buf.definition, bufopts)
+    -- bufmap('n', 'gh', vim.lsp.buf.hover, bufopts)
+    -- bufmap('n', 'gr', vim.lsp.buf.references, bufopts)
     -- 这两个什么功能？
-    -- map('n', 'gD', vim.lsp.buf.declaration, bufopts)
-    map('n', 'gi', vim.lsp.buf.implementation, bufopts)
-    -- map('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-    -- map('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-    -- map('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-    -- map('n', '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
-    -- map('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-    -- map("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
-    map("n", "<leader>f", function()
+    -- bufmap('n', 'gD', vim.lsp.buf.declaration, bufopts)
+    -- map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opt)
+    bufmap('n', 'gi', vim.lsp.buf.implementation, bufopt)
+    -- bufmap('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+    -- bufmap('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+    -- bufmap('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+    -- bufmap('n', '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
+    -- bufmap('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+    -- bufmap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", bufopt)
+    bufmap("n", "<leader>f", function()
         vim.lsp.buf.format({ async = true })
-    end, bufopts)
+    end, bufopt)
 
     -- diagnostic  错误提示太长看不全
-    map("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
-    map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
-    map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
-    -- map("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
-    -- map("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
-    -- map("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
+    bufmap("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", bufopt)
+    bufmap("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", bufopt)
+    bufmap("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", bufopt)
+    -- bufmap("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", bufopt)
+    -- bufmap("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", bufopt)
+    -- bufmap("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", bufopt)
 end
 
 
