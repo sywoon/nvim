@@ -88,6 +88,13 @@ vim.o.splitbelow = true  -- 新窗口从下边出现
 vim.o.splitright = true  -- 新窗口从右边出现
 
 -- 自动补全不自动选中
+-- 自动完成（Autocompletion）的行为和显示方式
+-- menu: 显示自动完成菜单，以便在自动完成时选择匹配项
+-- menuone: 如果只有一个匹配项，自动完成菜单也会显示，但会立即进行完成（不需要手动选择）
+-- noselect: 自动完成时不会选择第一个匹配项，除非手动选择
+-- longest: 自动完成时将自动选择最长的公共部分，而不是显示完整的候选项
+-- preview: 在菜单中预览当前选择的匹配项的信息
+-- noinsert: 自动完成时不会立即插入匹配项，除非手动选择
 vim.g.completeopt = "menu,menuone,noselect,noinsert"
 
 -- 样式
@@ -120,6 +127,13 @@ vim.o.showmode = false
 -- treesitter
 -- 代码折叠
 -- 开启 Folding 模块
+  -- 设置折叠（fold）的方式
+  -- manual: 手动折叠。你可以使用 Vim 的折叠命令手动创建、打开和关闭折叠块。例如，使用 zf 命令创建折叠，使用 zo 命令打开折叠，使用 zc 命令关闭折叠
+  -- indent: 缩进折叠。Vim 会根据代码的缩进级别自动创建折叠块。这对于类似 Python 这样的缩进敏感语言特别有用
+  -- expr: 表达式折叠。你可以定义一个 Vim 表达式来决定哪些行应该属于一个折叠块
+  -- syntax: 语法折叠。Vim 使用当前文件的语法文件来决定哪些部分应该被折叠。这对于程序源代码文件尤其有用
+  -- diff: 比较折叠。Vim 可以根据当前文件与另一个文件的差异来设置折叠
+  -- marker: 标记折叠。Vim 使用预先设置的标记（marker）来定义折叠块的范围
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 -- 默认不要折叠

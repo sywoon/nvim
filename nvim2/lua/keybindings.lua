@@ -321,9 +321,6 @@ end
 
 -- nvim-dap
 pluginKeys.mapDAP = function()
-  -- 开始
-  map("n", "<leader>dd", ":RustDebuggables<CR>", opt)
-  -- 结束 (dapui无法自动关闭可能是bug，手动关闭能想到的一切)
   map(
     "n",
     "<leader>de",
@@ -335,15 +332,17 @@ pluginKeys.mapDAP = function()
       .. "<C-w>o<CR>",
     opt
   )
-  -- 继续
-  map("n", "<leader>dc", ":lua require'dap'.continue()<CR>", opt)
-  -- 设置断点
-  map("n", "<leader>dt", ":lua require('dap').toggle_breakpoint()<CR>", opt)
-  map("n", "<leader>dT", ":lua require('dap').clear_breakpoints()<CR>", opt)
-  --  stepOver, stepOut, stepInto
-  map("n", "<leader>dj", ":lua require'dap'.step_over()<CR>", opt)
-  map("n", "<leader>dk", ":lua require'dap'.step_out()<CR>", opt)
-  map("n", "<leader>dl", ":lua require'dap'.step_into()<CR>", opt)
+  -- 配置快捷键
+  map('n', '<F5>', "<cmd>lua require'dap'.continue()<CR>", opt)
+  map('n', '<F10>', "<cmd>lua require'dap'.step_over()<CR>", opt)
+  map('n', '<F11>', "<cmd>lua require'dap'.step_into()<CR>", opt)
+  map('n', '<F12>', "<cmd>lua require'dap'.step_out()<CR>", opt)
+  map('n', '<F9>', "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opt)
+  map('n', '<leader>db', "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opt)
+  map("n", "<leader>dc", "<cmd>lua require('dap').clear_breakpoints()<CR>", opt)
+  -- map('n', '<leader>lp', "<cmd>lua require.dap".set_breakpoint(nil, nil, vim.fn.input(\'Log point message: \'))<CR>', { noremap = true, silent = true })
+  map('n', '<leader>dr', '<cmd>lua require\'dap\'.repl.open()<CR>', opt)
+  -- map('n', '<leader>dl', '<cmd>lua require\'dap\'.run_last()<CR>', { noremap = true, silent = true })
   -- 弹窗
   map("n", "<leader>dh", ":lua require'dapui'.eval()<CR>", opt)
 end
