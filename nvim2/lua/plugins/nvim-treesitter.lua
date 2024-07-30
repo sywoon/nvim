@@ -17,7 +17,7 @@ return {
         treesitter.setup({
             -- 安装 language parser
             -- :TSInstallInfo 命令查看支持的语言
-            ensure_installed = { "c", "markdown", "json", "html", "css", 
+            ensure_installed = { "c", "markdown", "json", "html", "css",
                 "vim", "lua", "javascript", "typescript", "tsx",
                 "html", "css"
             },
@@ -35,6 +35,11 @@ return {
             incremental_selection = {
                 enable = true,
                 keymaps = {
+                    -- init_selection = "gn",   -- 初始化选择
+                    -- node_incremental = "gn", -- 增量选择节点
+                    -- scope_incremental = "grc", -- 增量选择作用域
+                    -- node_decremental = "grm", -- 减少选择节点
+                    --
                     init_selection = "<CR>",
                     node_incremental = "<CR>",
                     node_decremental = "<BS>",
@@ -59,4 +64,3 @@ return {
 -- -- 默认不要折叠
 -- -- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
 -- vim.opt.foldlevel = 99
-

@@ -13,6 +13,9 @@ local map = vim.api.nvim_set_keymap
 local mapex = vim.keymap.set --支持多种模式
 local opt = { noremap = true, silent = true }
 
+-- 取消<CR>默认功能
+-- map("n", "<CR>", "", opt)  --有bug 会影响flash的f功能
+
 -- 取消 s 默认功能
 map("n", "s", "", opt)
 -- windows 分屏快捷键
@@ -177,7 +180,7 @@ pluginKeys.mapLSP = function(_, bufnr) -- _=client
     -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local bufopt = { noremap = true, silent = true, buffer = bufnr}
+    local bufopt = { noremap = true, silent = true, buffer = bufnr }
     -- local bufmap = function (...)
     --     vim.api.nvim_buf_set_keymap(bufnr, ...)
     -- end
@@ -321,31 +324,39 @@ end
 
 -- nvim-dap
 pluginKeys.mapDAP = function()
-  map(
-    "n",
-    "<leader>de",
-    ":lua require'dap'.close()<CR>"
-      .. ":lua require'dap'.terminate()<CR>"
-      .. ":lua require'dap.repl'.close()<CR>"
-      .. ":lua require'dapui'.close()<CR>"
-      .. ":lua require('dap').clear_breakpoints()<CR>"
-      .. "<C-w>o<CR>",
-    opt
-  )
-  -- 配置快捷键
-  map('n', '<F5>', "<cmd>lua require'dap'.continue()<CR>", opt)
-  map('n', '<F10>', "<cmd>lua require'dap'.step_over()<CR>", opt)
-  map('n', '<F11>', "<cmd>lua require'dap'.step_into()<CR>", opt)
-  map('n', '<F12>', "<cmd>lua require'dap'.step_out()<CR>", opt)
-  map('n', '<F9>', "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opt)
-  map('n', '<leader>db', "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opt)
-  map("n", "<leader>dc", "<cmd>lua require('dap').clear_breakpoints()<CR>", opt)
-  -- map('n', '<leader>lp', "<cmd>lua require.dap".set_breakpoint(nil, nil, vim.fn.input(\'Log point message: \'))<CR>', { noremap = true, silent = true })
-  map('n', '<leader>dr', '<cmd>lua require\'dap\'.repl.open()<CR>', opt)
-  -- map('n', '<leader>dl', '<cmd>lua require\'dap\'.run_last()<CR>', { noremap = true, silent = true })
-  -- 弹窗
-  map("n", "<leader>dh", ":lua require'dapui'.eval()<CR>", opt)
+    map(
+        "n",
+        "<leader>de",
+        ":lua require'dap'.close()<CR>"
+        .. ":lua require'dap'.terminate()<CR>"
+        .. ":lua require'dap.repl'.close()<CR>"
+        .. ":lua require'dapui'.close()<CR>"
+        .. ":lua require('dap').clear_breakpoints()<CR>"
+        .. "<C-w>o<CR>",
+        opt
+    )
+    -- 配置快捷键
+    map('n', '<F5>', "<cmd>lua require'dap'.continue()<CR>", opt)
+    map('n', '<F10>', "<cmd>lua require'dap'.step_over()<CR>", opt)
+    map('n', '<F11>', "<cmd>lua require'dap'.step_into()<CR>", opt)
+    map('n', '<F12>', "<cmd>lua require'dap'.step_out()<CR>", opt)
+    map('n', '<F9>', "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opt)
+    map('n', '<leader>db', "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opt)
+    map("n", "<leader>dc", "<cmd>lua require('dap').clear_breakpoints()<CR>", opt)
+    -- map('n', '<leader>lp', "<cmd>lua require.dap".set_breakpoint(nil, nil, vim.fn.input(\'Log point message: \'))<CR>', { noremap = true, silent = true })
+    map('n', '<leader>dr', '<cmd>lua require\'dap\'.repl.open()<CR>', opt)
+    -- map('n', '<leader>dl', '<cmd>lua require\'dap\'.run_last()<CR>', { noremap = true, silent = true })
+    -- 弹窗
+    map("n", "<leader>dh", ":lua require'dapui'.eval()<CR>", opt)
 end
 
+pluginKeys.flashMap = {
+    { "f",         mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+    { "S",         mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+    -- 下面几个没搞懂
+    { "r",         mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+    { "R",         mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+    { "<leader>s", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+}
 
 return pluginKeys

@@ -12,7 +12,9 @@ function Test2()
     table.sort(t, function(l, r)
         return l < r
     end)
-    print("hello")
+
+    local t2 = table.invert(t)
+    print("hello", t2)
 end
 
 --数组排序 采用快速排序

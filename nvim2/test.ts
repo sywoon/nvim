@@ -13,5 +13,9 @@ function test(): number {
 
 test()
 
+function test2() {
+    console.log("hello ts")
+}
+
 
 
