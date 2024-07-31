@@ -21,6 +21,7 @@ return {
             eslint = {},
             html = require ("lsp.html"),
             cssls = require ("lsp.css"),
+            markdown_oxide = {},
         }
         require("mason").setup({
             ui = {
