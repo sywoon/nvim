@@ -1,10 +1,10 @@
 return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-        "nvim-lua/plenary.nvim", 
+        "nvim-lua/plenary.nvim",
         "LinArcX/telescope-env.nvim",
-        { 
-            'nvim-telescope/telescope-fzf-native.nvim', 
+        {
+            'nvim-telescope/telescope-fzf-native.nvim',
             --build = 'make',
             build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && mv build/Release/libfzf.dll build',
         },
@@ -28,7 +28,7 @@ return {
                 -- 内置 pickers 配置
                 find_files = {
                 -- 查找文件换皮肤，支持的参数有： dropdown, cursor, ivy
-                -- theme = "ivy", 
+                    theme = "dropdown",
                 }
             },
             extensions = {
