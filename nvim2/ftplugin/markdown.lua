@@ -4,18 +4,11 @@ vim.opt_local.shiftwidth = 2
 vim.opt_local.tabstop = 2
 vim.opt_local.softtabstop = 2
 
+
 -- 用行号测试 发现md文件是执行和生效的 且不会影响其他文件
 vim.wo.number = true          -- 启用行号
 vim.wo.relativenumber = false -- 启用相对行号
 
 
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "markdown",
-    callback = function()
-        vim.notify("markdown file type detected")
-        vim.opt.tabstop = 2
-        vim.opt.shiftwidth = 2
-        vim.opt.softtabstop = 2
-        vim.opt.expandtab = true
-    end,
-})
+
+
