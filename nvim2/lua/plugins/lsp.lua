@@ -22,6 +22,7 @@ return {
             html = require ("lsp.html"),
             cssls = require ("lsp.css"),
             remark_ls = require ("lsp.remark"),
+            clangd = require ("lsp.clangd"),
         }
         require("mason").setup({
             ui = {
@@ -50,7 +51,9 @@ return {
             -- lspconfig[name].setup(svrCfg)
             -- 第三版本 公共部分保留 具体语言配置 只存放个性化部分
             lspconfig[name].setup(
-                vim.tbl_deep_extend("keep",
+                --keep:后续表相同key不会覆盖之前的值
+                --force:后续表相同key会覆盖之前的值
+                vim.tbl_deep_extend("force",
                     {
                         -- LSP 客户端连接到缓冲区时调用的函数
                         on_attach = require('keybindings').mapLSP,
