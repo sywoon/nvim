@@ -31,6 +31,25 @@ function open_log()
     vim.cmd('edit ' .. path .. '/nvim_log.txt')
 end
 
+local function open_directory()
+    local current_file = vim.api.nvim_buf_get_name(0)
+    local directory = vim.fn.fnamemodify(current_file, ':h')
+    directory = string.gsub(directory, '/', '\\')
+    -- vim.notify(directory)
+    --
+    -- 只能在powershell中使用
+    local result = vim.fn.system('explorer "'..directory..'"')
+    -- print("'" .. result .. "'")  --有换行
+
+    -- git bash不支持
+    -- if string.find(result, "/usr/bin/bash: /s: No such file or directory") then
+    --     directory = string.gsub(directory, '\\', '\\\\') .. '\\\\'
+    --     result = vim.fn.system('explorer "'..directory..'"')
+    --     print(result)
+    -- end
+end
+vim.api.nvim_create_user_command('OpenDirectory', open_directory, {})
+
 
 require "basic"
 require "keybindings"
