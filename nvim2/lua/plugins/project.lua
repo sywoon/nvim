@@ -11,8 +11,8 @@ return {
         vim.g.nvim_tree_respect_buf_cwd = 1
 
         project.setup({
-            -- using `:ProjectRoot` command
-            manual_mode = false,
+            -- using `:ProjectRoot` command  会将tree切换到工程目录
+            manual_mode = true,  --改为手动模式 否则内嵌的git子目录会消失 或者子目录中打开自动跳转到父目录
             detection_methods = { "lsp", "pattern" },
             patterns = {
                 ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", ".sln"
