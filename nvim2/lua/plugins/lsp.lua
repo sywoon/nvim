@@ -17,7 +17,7 @@ return {
         local servers = {
             lua_ls = require("lsp.lua"), -- lua/lsp/lua.lua
             pylsp = require("lsp.python"),
-            tsserver = require ("lsp.typescript"),
+            ts_ls = require ("lsp.typescript"),
             eslint = {},
             html = require ("lsp.html"),
             cssls = require ("lsp.css"),
@@ -50,6 +50,11 @@ return {
             -- 第二版本 所有语言都独立配置
             -- lspconfig[name].setup(svrCfg)
             -- 第三版本 公共部分保留 具体语言配置 只存放个性化部分
+            
+            -- https://github.com/neovim/nvim-lspconfig/pull/3232
+            -- if name == "tsserver" then
+            --     name = "ts_ls"
+            -- end
             lspconfig[name].setup(
                 --keep:后续表相同key不会覆盖之前的值
                 --force:后续表相同key会覆盖之前的值
