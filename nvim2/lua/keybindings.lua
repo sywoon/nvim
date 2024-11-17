@@ -151,6 +151,15 @@ map('n', 'k', '<Plug>(accelerated_jk_gk)', opt)
 map('n', '<leader>fp', ':Telescope projects<CR>', opt)
 
 
+-- 自定义 LazyGit 的入口
+function open_lazygit()
+  local Terminal = require("toggleterm.terminal").Terminal
+  local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
+  lazygit:toggle()
+end
+map('n', '<leader>lg', ':lua open_lazygit()<CR>', opt)
+
+
 
 
 local pluginKeys = {}
