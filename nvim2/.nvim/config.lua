@@ -14,7 +14,7 @@ require'nvim-tree'.setup {
     --   ^db\\  外层空格 内部保留  inuse  不够完美
     --  解决: ^db\\ 会过滤掉根目录下的db文件夹 但会保留src\base\db文件夹
     --   .log竟然会过滤掉src/base/logs文件夹 bug？
-    custom = { 'node_modules', '.git', '.laya' }
+    custom = { 'node_modules', '.git$', '.laya$' }
   }
 }
 
@@ -23,7 +23,7 @@ require'telescope'.setup {
     -- 注意:windows中 若只需过滤根目录文件夹 可以使用'\\'结尾 不能用'/'结尾
     --   db\\会过滤src\base\bd\文件夹 所以它是用关键字来过滤路径的
     --   采用lua的正则表达式 ^db\\ 会过滤掉根目录下的db文件夹 但会保留src\base\db文件夹
-    file_ignore_patterns = { 'node_modules', '.git', '.laya', '^bin\\', '^tools\\', '^db\\', '^docs\\' }
+    file_ignore_patterns = { 'node_modules', '.git$', '.laya$', '^bin\\', '^tools\\', '^db\\', '^docs\\' }
   }
 }
 

@@ -153,10 +153,11 @@ map('n', '<leader>fp', ':Telescope projects<CR>', opt)
 
 -- 自定义 LazyGit 的入口
 function open_lazygit()
-  local Terminal = require("toggleterm.terminal").Terminal
-  local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
-  lazygit:toggle()
+    local Terminal = require("toggleterm.terminal").Terminal
+    local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
+    lazygit:toggle()
 end
+
 map('n', '<leader>lg', ':lua open_lazygit()<CR>', opt)
 
 
@@ -367,5 +368,50 @@ pluginKeys.flashMap = {
     { "R",         mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
     { "<leader>s", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
 }
+
+pluginKeys.gitSigns = function(bufnr)
+    local gitsigns = require('gitsigns')
+
+    local function map(mode, l, r, opts)
+        opts = opts or {}
+        opts.buffer = bufnr
+        vim.keymap.set(mode, l, r, opts)
+    end
+
+    -- Navigation
+    map('n', ']c', function()   --没找到用途
+        if vim.wo.diff then
+            vim.cmd.normal({ ']c', bang = true })
+        else
+            gitsigns.nav_hunk('next')
+        end
+    end)
+
+    map('n', '[c', function()
+        if vim.wo.diff then
+            vim.cmd.normal({ '[c', bang = true })
+        else
+            gitsigns.nav_hunk('prev')
+        end
+    end)
+
+    -- Actions
+    -- map('n', '<leader>hs', gitsigns.stage_hunk)
+    -- map('n', '<leader>hr', gitsigns.reset_hunk)
+    -- map('v', '<leader>hs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+    -- map('v', '<leader>hr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+    -- map('n', '<leader>hS', gitsigns.stage_buffer)
+    -- map('n', '<leader>hu', gitsigns.undo_stage_hunk)
+    -- map('n', '<leader>hR', gitsigns.reset_buffer)
+    -- map('n', '<leader>hp', gitsigns.preview_hunk)
+    map('n', '<leader>hp', function() gitsigns.blame_line { full = true } end)
+    map('n', '<leader>hb', gitsigns.toggle_current_line_blame)
+    map('n', '<leader>hd', gitsigns.diffthis)   --还有点用 可以查看差异 但是关闭有点麻烦 sc:关闭差异对比+c-h/l 切换标签 
+    -- map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
+    -- map('n', '<leader>td', gitsigns.toggle_deleted)
+
+    -- Text object
+    map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+end
 
 return pluginKeys
