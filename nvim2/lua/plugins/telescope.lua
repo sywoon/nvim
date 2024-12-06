@@ -23,12 +23,26 @@ return {
                 -- 窗口内快捷键
                 mappings = require("keybindings").telescopeList,
                 file_ignore_patterns = { "node_modules", ".git"},  --好像默认就会过滤.开头的文件夹
+                layout_config = {
+                    horizontal = {
+                        width_padding = 0.1,
+                        height_padding = 0.1,
+                        preview_width = 0.65,  --右边预览内容宽度占比
+                    },
+                    vertical = {
+                        width_padding = 0.05,
+                        height_padding = 0.1,
+                        preview_height = 0.9,
+                    },
+                    width = 0.9,
+                    height = 0.9,
+                },
             },
             pickers = {
                 -- 内置 pickers 配置
                 find_files = {
                 -- 查找文件换皮肤，支持的参数有： dropdown, cursor, ivy
-                    theme = "dropdown",
+                    theme = "ivy",
                 }
             },
             extensions = {
