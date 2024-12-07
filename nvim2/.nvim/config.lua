@@ -14,7 +14,7 @@ require'nvim-tree'.setup {
     --   ^db\\  外层空格 内部保留  inuse  不够完美
     --  解决: ^db\\ 会过滤掉根目录下的db文件夹 但会保留src\base\db文件夹
     --   .log竟然会过滤掉src/base/logs文件夹 bug？
-    custom = { '^node_modules$', '^.git$', '^.laya$', '^assets$', '%.meta$' }
+    custom = { '^node_modules$', '^.git$', '^.laya$', '%.meta$' }
   }
 }
 
