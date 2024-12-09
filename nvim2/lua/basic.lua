@@ -141,3 +141,12 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
 
 
+vim.filetype.add({
+    extension = {
+        vs = "glsl",
+        fs = "glsl",
+        vert = "glsl",
+        frag = "glsl",
+        glsl = "glsl",
+    },
+})

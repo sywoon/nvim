@@ -23,6 +23,7 @@ return {
             cssls = require ("lsp.css"),
             remark_ls = require ("lsp.remark"),
             clangd = require ("lsp.clangd"),
+            glsl_analyzer = {},
         }
         require("mason").setup({
             ui = {

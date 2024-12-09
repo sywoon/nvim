@@ -19,7 +19,7 @@ return {
             -- :TSInstallInfo 命令查看支持的语言
             ensure_installed = { "c", "markdown", "json", "html", "css",
                 "vim", "lua", "javascript", "typescript", "tsx",
-                "html", "css"
+                "html", "glsl",
             },
             -- 启用代码高亮模块
             highlight = {
