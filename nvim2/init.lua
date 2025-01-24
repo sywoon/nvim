@@ -5,6 +5,22 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 
+-- 添加 Neovide 相关设置
+if vim.g.neovide then
+    -- vim.print(vim.g.neovide_version)
+    vim.g.neovide_iso_layout = 0
+    vim.g.neovide_theme = "dark"
+    vim.g.neovide_padding_left = 0
+    vim.g.neovide_padding_right = 0
+    vim.g.neovide_padding_top = 0
+    vim.g.neovide_padding_bottom = 0
+    vim.g.neovide_transparency = 1.0
+    vim.g.neovide_remember_window_size = true
+    vim.g.neovide_cursor_vfx_mode = "railgun"
+    -- vim.o.guifont = "SauceCodePro Nerd Font:h12"
+    vim.o.guifont = "Cousine Nerd Font:h12"
+end
+
 -- vim.log.info
 -- ~/.local/share/nvim/log
 function log(msg)
