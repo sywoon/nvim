@@ -18,9 +18,8 @@ return {
                 ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", ".sln"
             },
             ignore_lsp = {},
-            -- Ex: { "~/.cargo/*", ... }
             exclude_dirs = {},
-            show_hidden = false,
+            show_hidden = false,  -- 是否允许显示隐藏目录
             silent_chdir = true,
             scope_chdir = 'global',
             datapath = vim.fn.stdpath("data"),
