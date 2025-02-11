@@ -8,6 +8,8 @@ vim.g.loaded_netrwPlugin = 1
 -- 添加 Neovide 相关设置
 if vim.g.neovide then
     -- vim.print(vim.g.neovide_version)
+    -- vim.g.neovide_input_use_logo = true  -- 允许 Neovide 处理带 Logo 键的快捷键（如 Ctrl）目前没用上也支持ctrl+v
+
     vim.g.neovide_iso_layout = 0
     vim.g.neovide_theme = "dark"
     vim.g.neovide_padding_left = 0
