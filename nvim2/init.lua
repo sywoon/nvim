@@ -25,7 +25,8 @@ if vim.g.neovide then
     --ctrl+shift+c <C-S-C> <C-S-V>
     vim.keymap.set({"n","x"}, "<C-c>", '"+y', { desc = "Copy system clipboard" })
     vim.keymap.set({"n","x"}, "<C-v>", '"+p', { desc = "Paste system clipboard" })
-    vim.keymap.set("i", "<C-v>", "<C-r>+", { desc = "Paste system clipboard in insert mode" })
+    vim.keymap.set({"i", "c"}, "<C-v>", "<C-r>+", { desc = "Paste system clipboard in insert mode" })
+    -- vim.api.nvim_set_keymap('c', '<C-V>', '<C-R>+', { noremap = true, silent = true })
 end
 
 -- vim.log.info

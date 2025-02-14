@@ -228,6 +228,7 @@ pluginKeys.mapLSP = function(_, bufnr) -- _=client
     end, bufopt)
 
     -- diagnostic  错误提示太长看不全
+    -- bufmap("n", "gp", "<cmd>Lspsaga show_cursor_diagnostics<CR>", bufopt)
     bufmap("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", bufopt)
     bufmap("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", bufopt)
     bufmap("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", bufopt)
