@@ -23,3 +23,24 @@ bin/tmux + msys-event_core-2-1-7.dll 复制到 C:\Program Files\Git\usr\bin
 另外两个msys-2.0.dll msys-ncursesw6.dll 已经有了不用复制 免得版本冲突
 这4个文件都是从msys复制而来
 
+
+## nvim1.0
+早期自学的版本  废弃
+
+## nvim1.1
+2024年开始使用 大半年时间  整理不错 后来发现gp失效 gd跳转laya库不准
+
+## nvim2.0 
+重新从0开始打造和学习
+
+
+
+
+
+
+
+
+
+
+
+
