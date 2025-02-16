@@ -24,15 +24,19 @@ bin/tmux + msys-event_core-2-1-7.dll 复制到 C:\Program Files\Git\usr\bin
 这4个文件都是从msys复制而来
 
 
-## nvim1.0
+## 各个版本介绍
+**nvim1.0**
 早期自学的版本  废弃
 
-## nvim1.1
+**nvim_wsl_packer**
+wsl中运行 基于packer.nvim管理 而非lazy.nvim  中途尝试的版本 
+若后期开发服务器 可以参考使用
+
+**nvim1.1**
 2024年开始使用 大半年时间  整理不错 后来发现gp失效 gd跳转laya库不准
 
-## nvim2.0 
+**nvim2.0** 
 重新从0开始打造和学习
-
 
 
 
