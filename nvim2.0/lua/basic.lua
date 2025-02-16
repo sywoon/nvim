@@ -14,5 +14,12 @@ vim.opt.shiftwidth = 0
 -- 文件重新加载 当在外部被修改
 vim.opt.autoread = true
 
+--vsplit split新窗口出现的位置
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
+
+
+
 
 
