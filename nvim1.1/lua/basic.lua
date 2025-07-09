@@ -150,3 +150,6 @@ vim.filetype.add({
         glsl = "glsl",
     },
 })
+
+--nvim-spectre插件
+vim.g.spectre_open_cmd = 'vnew'  -- 设置结果打开方式为分屏模式

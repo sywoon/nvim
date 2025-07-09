@@ -380,7 +380,7 @@ pluginKeys.gitSigns = function(bufnr)
     end
 
     -- Navigation
-    map('n', ']c', function()   --没找到用途
+    map('n', ']c', function() --没找到用途
         if vim.wo.diff then
             vim.cmd.normal({ ']c', bang = true })
         else
@@ -407,12 +407,24 @@ pluginKeys.gitSigns = function(bufnr)
     -- map('n', '<leader>hp', gitsigns.preview_hunk)
     map('n', '<leader>hp', function() gitsigns.blame_line { full = true } end)
     map('n', '<leader>hb', gitsigns.toggle_current_line_blame)
-    map('n', '<leader>hd', gitsigns.diffthis)   --还有点用 可以查看差异 但是关闭有点麻烦 sc:关闭差异对比+c-h/l 切换标签 
+    map('n', '<leader>hd', gitsigns.diffthis) --还有点用 可以查看差异 但是关闭有点麻烦 sc:关闭差异对比+c-h/l 切换标签
     -- map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
     -- map('n', '<leader>td', gitsigns.toggle_deleted)
 
     -- Text object
     map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+end
+
+pluginKeys.spectre = function()
+    vim.keymap.set('n', '<leader>st', '<cmd>lua require("spectre").toggle()<CR>', {
+        desc = "Toggle Spectre"
+    })
+    vim.keymap.set('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
+        desc = "Search current word"
+    })
+    vim.keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+        desc = "Search on current file"
+    })
 end
 
 return pluginKeys
